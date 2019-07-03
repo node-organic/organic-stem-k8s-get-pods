@@ -1,6 +1,6 @@
 {
   "name": "organic-stem-k8s-get-pods",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "scripts": {
     "test": "echo no tests",
     "release-patch": "npm run test && npm version patch && npm publish && git push --tags && git push origin master",
@@ -20,5 +20,14 @@
   },
   "main": "index.js",
   "author": "Boris Filipov",
-  "license": "MIT"
+  "license": "MIT",
+  "description": "a helper for organic-stem-skeleton 2.1 based cells for listing matching pods",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/node-organic/organic-stem-k8s-get-pods.git"
+  },
+  "bugs": {
+    "url": "https://github.com/node-organic/organic-stem-k8s-get-pods/issues"
+  },
+  "homepage": "https://github.com/node-organic/organic-stem-k8s-get-pods#readme"
 }
