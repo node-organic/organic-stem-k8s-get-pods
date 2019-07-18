@@ -6,7 +6,7 @@ a helper for organic-stem-skeleton 2.1 based cells for listing matching pods:
 
 ## prerequirements
 
-- kubectl with aligned context
+- `kubectl` with aligned context
 
 ## usage
 
