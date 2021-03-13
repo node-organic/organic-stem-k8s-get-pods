@@ -1,6 +1,6 @@
 {
   "name": "organic-stem-k8s-get-pods",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "scripts": {
     "test": "echo no tests",
     "release-patch": "npm run test && npm version patch && npm publish && git push --tags && git push origin master",
