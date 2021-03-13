@@ -8,7 +8,7 @@ const check = (root, labels, namespace, log, waitPods, resolve, reject, retryCou
   let kubeconfigOption = ''
   if (pathExists(kubeconfigPath)) {
     kubeconfigOption = '--kubeconfig=' + kubeconfigPath
-    console.info('using kubeconfig:', kubeconfigPath)
+    if (log) console.info('using kubeconfig:', kubeconfigPath)
   }
   let cmd = `kubectl get pods ${labels.join(' ')} --namespace ${namespace} --no-headers -o json ${kubeconfigOption}`
   if (log) console.info('get k8s pods run:', cmd)  
@@ -32,7 +32,7 @@ const check = (root, labels, namespace, log, waitPods, resolve, reject, retryCou
       if (retryCount > maxRetries) {
         return reject(new Error('failed to lookup pods at ' + labels.join(' ') + ' within namespace ' + namespace))
       }
-      console.log('pods not found, retry...', retryCount)
+      if (log) console.log('pods not found, retry...', retryCount)
       setTimeout(function () {
         check(labels, namespace, log, waitPods, resolve, reject, retryCount++)
       }, 1000)
