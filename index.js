@@ -45,8 +45,6 @@ const check = (root, labels, namespace, log, waitPods, resolve, reject, retryCou
 module.exports = async function ({cellName, namespace = 'default', 
   log = false, waitPods = false, labelName = 'app', labels = []}) {
   const root = await findSkeletonRoot()
-  const loadCellInfo = require(path.join(root, 'cells/node_modules/lib/load-cell-info'))
-  const cellInfo = await loadCellInfo(cellName)
   const allLabels = [`-l=${labelName}=${cellName}`].concat(labels.map((v) => '-l=' + v))
   return new Promise((resolve, reject) => {
     check(root, allLabels, namespace, log, waitPods, resolve, reject, 0)
