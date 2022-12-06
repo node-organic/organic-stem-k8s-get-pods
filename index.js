@@ -3,10 +3,10 @@ const path = require('path')
 const {exec} = require('child_process')
 const pathExists = require('path-exists')
 
-const check = (root, labels, namespace, log, waitPods, resolve, reject, retryCount, maxRetries = 10) => {
+const check = async (root, labels, namespace, log, waitPods, resolve, reject, retryCount, maxRetries = 10) => {
   const kubeconfigPath = path.join(root, '.kubeconfig')
   let kubeconfigOption = ''
-  if (pathExists(kubeconfigPath)) {
+  if (await pathExists(kubeconfigPath)) {
     kubeconfigOption = '--kubeconfig=' + kubeconfigPath
     if (log) console.info('using kubeconfig:', kubeconfigPath)
   }
